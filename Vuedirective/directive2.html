@@ -27,5 +27,36 @@
       </table>
     </div>
     <script src="https://unpkg.com/vue"></script>
+    <script>
+      var app = Vue.createApp({
+        name: 'App',
+        data() {
+          return {
+            students: [
+              {
+                no: '1234',
+                name: '이윤정',
+                dept: '컴공',
+              },
+              {
+                no: '1235',
+                name: '박성훈',
+                dept: '컴공',
+              },
+              {
+                no: '1236',
+                name: '토리',
+                dept: '다람쥐학과',
+              },
+              {
+                no: '1237',
+                name: '펭귄',
+                dept: '남극학과',
+              },
+            ],
+          };
+        },
+      }).app.mount('#app');
+    </script>
   </body>
 </html>
