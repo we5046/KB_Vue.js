@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f6fa;
+        padding: 30px;
+      }
+
+      #sunghoon {
+        width: 500px;
+        margin: 0 auto;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      thead {
+        background-color: #4f46e5;
+        color: white;
+      }
+
+      th,
+      td {
+        padding: 12px;
+        text-align: center;
+      }
+
+      tbody tr {
+        border-bottom: 1px solid #eee;
+      }
+
+      tbody tr:hover {
+        background-color: #f1f3ff;
+        transition: 0.2s;
+      }
+
+      th {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="sunghoon">
+      <table border="1">
+        <thead>
+          <tr>
+            <th>번호</th>
+            <th>이름</th>
+            <th>전화번호</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(contact) in contacts">
+            <td>{{contact.no}}</td>
+            <td>{{contact.name}}</td>
+            <td>{{contact.phone}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      let vm = Vue.createApp({
+        name: 'App',
+        data() {
+          return {
+            contacts: [
+              { no: '1011', name: '박성', phone: '010-3456-8299' },
+              { no: '1012', name: '성훈', phone: '010-3456-8298' },
+              { no: '1013', name: '윤정', phone: '010-3456-8297' },
+              { no: '1014', name: '준영', phone: '010-3456-8296' },
+            ],
+          };
+        },
+      });
+      vm.mount('#sunghoon');
+    </script>
+  </body>
+</html>
