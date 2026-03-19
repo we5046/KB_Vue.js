@@ -6,7 +6,7 @@
     <title>Document</title>
   </head>
   <body>
-    <div id="app">
+    <div id="sunghoon">
       위의 내용에 동의하십니까?
       <input
         type="checkbox"
@@ -16,9 +16,8 @@
       />
       <hr />
 
-      <span>선택된 값 : {{agree}}</span>
+      <span>선택된 값: {{agree}}</span>
     </div>
-
     <script src="https://unpkg.com/vue"></script>
     <script>
       let vm = Vue.createApp({
@@ -29,7 +28,7 @@
           };
         },
       });
-      vm.mount('#app');
+      vm.mount('#sunghoon');
     </script>
   </body>
 </html>
