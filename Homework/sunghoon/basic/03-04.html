@@ -11,14 +11,18 @@
       <br />
       입력한 값: <span>{{name}}</span>
     </div>
+
     <script src="https://unpkg.com/vue"></script>
     <script>
       let vm = Vue.createApp({
         name: 'App',
         data() {
-          return { name: '' };
+          return {
+            name: '',
+          };
         },
-      }).mount('#sunghoon');
+      });
+      vm.mount('#sunghoon');
     </script>
   </body>
 </html>
