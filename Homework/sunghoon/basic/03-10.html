@@ -6,7 +6,7 @@
     <title>Document</title>
   </head>
   <body>
-    <div id="app">
+    <div id="sunghoon">
       예금액: <input type="text" v-model="amount" />
       <img
         v-if="amount < 0"
@@ -22,8 +22,7 @@
         data() {
           return { amount: '' };
         },
-      });
-      vm.mount('#app');
+      }).mount('#sunghoon');
     </script>
   </body>
 </html>
