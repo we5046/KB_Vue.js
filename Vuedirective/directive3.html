@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app3">
+      <h3>양방향 예제1</h3>
+      <!-- v-model과 {{}}의 대상이 동일해야한다. -->
+      <input tpye="text" v-model="message" />
+      <p>입력값: {{message}}</p>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      Vue.createApp({
+        data() {
+          return {
+            message: '안녕하세요',
+          };
+        },
+      }).mount('#app3');
+    </script>
+  </body>
+</html>
