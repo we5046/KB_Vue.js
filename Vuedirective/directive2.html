@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KBIT'sYourLIFe</title>
+  </head>
+  <body>
+    <div id="app">
+      <table border="1">
+        <thead>
+          <tr>
+            <th>순번</th>
+            <th>학번</th>
+            <th>이름</th>
+            <th>학과</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(student, idx) in students" :key="student.no">
+            <td>{{idx + 1}}</td>
+            <td>{{student.no}}</td>
+            <td>{{student.name}}</td>
+            <td>{{student.dept}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      var app = Vue.createApp({
+        name: 'App',
+        data() {
+          return {
+            students: [
+              {
+                no: '1234',
+                name: '이윤정',
+                dept: '컴공',
+              },
+              {
+                no: '1235',
+                name: '박성훈',
+                dept: '컴공',
+              },
+              {
+                no: '1236',
+                name: '토리',
+                dept: '다람쥐학과',
+              },
+              {
+                no: '1237',
+                name: '펭귄',
+                dept: '남극학과',
+              },
+            ],
+          };
+        },
+      });
+      app.mount('#app');
+    </script>
+  </body>
+</html>
