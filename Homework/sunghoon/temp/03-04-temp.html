@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="sunghoon">
+      <input type="text" v-model="name" />
+      <br />
+      입력한 값: <span>{{name}}</span>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      let vm = Vue.createApp({
+        name: 'App',
+        data() {
+          return { name: '' };
+        },
+      }).mount('#sunghoon');
+    </script>
+  </body>
+</html>
