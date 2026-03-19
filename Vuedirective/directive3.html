@@ -12,5 +12,15 @@
       <input tpye="text" v-model="message" />
       <p>입력값: {{message}}</p>
     </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      Vue.createApp({
+        data() {
+          return {
+            message: '안녕하세요',
+          };
+        },
+      }).mount('#app3');
+    </script>
   </body>
 </html>
