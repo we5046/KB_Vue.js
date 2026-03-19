@@ -17,11 +17,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>{{}}</td>
-            <td>{{}}</td>
-            <td>{{}}</td>
-            <td>{{}}</td>
+          <tr v-for="(student, idx) in students" :key="student.no">
+            <td>{{idx + 1}}</td>
+            <td>{{student.no}}</td>
+            <td>{{student.name}}</td>
+            <td>{{student.dept}}</td>
           </tr>
         </tbody>
       </table>
@@ -56,7 +56,8 @@
             ],
           };
         },
-      }).app.mount('#app');
+      });
+      app.mount('#app');
     </script>
   </body>
 </html>
