@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <div>
+        <!-- x 값을 입력받는 숫자 입력 필드 -->
+        x : <input type="number" v-model="x" /><br />
+        <!-- y 값을 입력받는 숫자 입력 필드 -->
+        y : <input type="number" v-model="y" /><br />
+        <!-- x와 y의 합계를 표시 -->
+        합계 : {{ sum }}
+      </div>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      let app = Vue.createApp({
+        name: 'App',
+        data() {
+          return {
+            x: 10, // 사용자가 입력한 x 값
+            y: 20, // 사용자가 입력한 y 값
+            sum: 30, // x와 y의 합계
+          };
+        },
+        computed: {},
+        methods: {},
+        watch: {
+          x(current, old) {
+            console.log('x의 감지');
+            this.sum = current + vm.y;
+          },
+          y(c, o) {
+            console.log('y의 감지');
+            this.sum = c + vm.x;
+          },
+        },
+      });
+      const vm = app.mount('#app');
+    </script>
+  </body>
+</html>

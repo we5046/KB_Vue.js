@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- View -->
+    <div id="sunghoon">
+      <div>
+        <span>1보다 큰수: </span>
+        <input type="number" v-model="num" /><br /><br />
+        1부터 입력한 숫자 까지의 값의 합: <span>{{sum()}}</span><br />
+        1부터 입력한 숫자 까지의 값의 합: <span>{{sum()}}</span><br />
+        1부터 입력한 숫자 까지의 값의 합: <span>{{sum()}}</span><br />
+      </div>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      let app = Vue.createApp({
+        name: 'sunghoon',
+        data() {
+          return {
+            num: 100,
+          };
+        },
+        methods: {
+          sum() {
+            console.log('현재의 num값:' + this.num);
+            return (this.num * (this.num + 1)) / 2;
+          },
+        },
+      });
+      app.mount('#sunghoon');
+    </script>
+  </body>
+</html>
