@@ -7,7 +7,14 @@
   </head>
   <body>
     <!-- 양방향 -->
-    <div id="sunghoon"></div>
+    <div id="sunghoon">
+      잔고 : <input type="number" v-model="balance" /> <br /><br />
+      회원등급:
+      <span v-if="balance > 3000000">Gold</span>
+      <span v-else-if="balance >= 1500000">Silver</span>
+      <span v-else-if="balance >= 100000">Bronze</span>
+      <span v-else>Basic</span>
+    </div>
     <script src="https://unpkg.com/vue"></script>
     <script>
       let app = Vue.createApp({
