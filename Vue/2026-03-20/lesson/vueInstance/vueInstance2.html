@@ -32,11 +32,11 @@
         watch: {
           x(current, old) {
             console.log('x의 감지');
-            this.sum = current + vm.y;
+            this.sum = current + this.y;
           },
           y(c, o) {
             console.log('y의 감지');
-            this.sum = c + vm.x;
+            this.sum = c + this.x;
           },
         },
       });
