@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
   <head>
     <title>bootstrap 5</title>
@@ -17,44 +17,59 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <style>
-      button {
-        margin-right: 5px;
+      .col-no {
+        width: 60px;
+      }
+      .col-user {
+        width: 120px;
+      }
+      .col-date {
+        width: 120px;
       }
     </style>
   </head>
-  <body>
-    <div id="app">
-      <h1>BootStrap Table</h1>
-      <table border="1" class="table table-striped">
-        <tr>
-          <th>No</th>
-          <th>제목</th>
-          <th>작성자</th>
-          <th>등록일</th>
-        </tr>
-        <tr v-for="(item, idx) in items">
-          <td>{{idx + 1}}</td>
-          <td><a href="#">{{item.title}}</a></td>
-          <td>{{item.user}}</td>
-          <td>{{item.date}}</td>
-        </tr>
-      </table>
-      <br />
-      <h1><i class="fa-solid fa-house"></i> Fontawesome 테스트</h1>
-      <button type="button" class="btn btn-primary">
-        <i class="fa-solid fa-envelope"></i> email
-      </button>
-      <button type="button" class="btn btn-success">
-        <i class="fa-solid fa-right-to-bracket"></i> login
-      </button>
-      <button type="button" class="btn btn-warning">
-        <i class="fa-solid fa-lock"></i> 비밀번호
-      </button>
-      <button type="button" class="btn btn-danger">
-        <i class="fa-solid fa-trash"></i> 삭제
-      </button>
+  <body class="bg-light">
+    <div id="sunghoon" class="container mt-3">
+      <div class="card shadow mt-3">
+        <div class="card-body">
+          <h1>Bootstrap Table</h1>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col" class="col-no">No</th>
+                <th scope="col">제목</th>
+                <th scope="col" class="col-user">작성자</th>
+                <th scope="col" class="col-date">등록일</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(item, idx) in items" :key="idx">
+                <td>{{idx+1}}</td>
+                <td><a href="#">{{item.title}}</a></td>
+                <td>{{item.user}}</td>
+                <td>{{item.date}}</td>
+              </tr>
+            </tbody>
+          </table>
+          <br />
+          <h2><i class="fa-solid fa-house"></i> Fontawesome 테스트</h2>
+          <div class="d-flex gap-2">
+            <button type="button" class="btn btn-primary">
+              <i class="fa-solid fa-envelope"></i> email
+            </button>
+            <button type="button" class="btn btn-success">
+              <i class="fa-solid fa-right-to-bracket"></i> login
+            </button>
+            <button type="button" class="btn btn-warning">
+              <i class="fa-solid fa-lock"></i> 비밀번호
+            </button>
+            <button type="button" class="btn btn-danger">
+              <i class="fa-solid fa-trash"></i> 삭제
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
-
     <script src="https://unpkg.com/vue"></script>
     <script>
       let app = Vue.createApp({
@@ -91,7 +106,7 @@
           };
         },
       });
-      app.mount('#app');
+      app.mount('#sunghoon');
     </script>
   </body>
 </html>
