@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <title>객체 직접 객체로 스타일 변경</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
+  <body>
+    <div id="sunghoon">
+      <p :style="{color:textColor, fontSize: fontSize+ 'px'}">
+        글자 크기가 동적으로 변경된다.
+      </p>
+      <div class="d-flex gap-2">
+        <button @click="this.fontSize+=2" class="btn btn-primary">
+          글자를 크게
+        </button>
+        <button @click="this.fontSize-=2" class="btn btn-danger">
+          글자를 작게
+        </button>
+        <button @click="changeColor" class="btn btn-warning">
+          색깔 바꾸기
+        </button>
+      </div>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      let app = Vue.createApp({
+        name: 'App',
+        data() {
+          return {
+            textColor: 'red',
+            fontSize: 20,
+          };
+        },
+        methods: {
+          changeColor() {
+            this.textColor = this.textColor === 'red' ? 'olive' : 'red';
+          },
+        },
+      });
+      app.mount('#sunghoon');
+    </script>
+  </body>
+</html>
