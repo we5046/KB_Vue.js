@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>버블링 차단</title>
+
+    <style>
+      /* 바깥 영역 스타일 */
+      #outer {
+        width: 300px;
+        height: 200px;
+        background-color: lightgreen;
+        padding: 20px;
+      }
+
+      /* 안쪽 영역 스타일 */
+      #inner {
+        width: 120px;
+        height: 100px;
+        background-color: pink;
+        line-height: 100px;
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="app">
+      <!-- 바깥 영역 클릭 이벤트 -->
+      <!-- ⚠️ @click 앞에는 반드시 공백 -->
+      <div id="outer" @click="outerClick">
+        바깥 영역
+
+        <!-- 
+        안쪽 영역 클릭 이벤트
+        .stop 👉 이벤트 버블링 차단 (핵심)
+        → inner 클릭 시 outerClick 실행 안됨
+      -->
+        <div id="inner" @click.stop="innerClick">안쪽 영역</div>
+      </div>
+
+      <!-- 클릭 로그 출력 -->
+      <p>{{ log }}</p>
+    </div>
+
+    <!-- Vue CDN -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+      Vue.createApp({
+        // 상태 데이터
+        data() {
+          return {
+            log: '', // 클릭 기록 저장
+          };
+        },
+
+        methods: {
+          // 바깥 영역 클릭
+          outerClick() {
+            this.log += '바깥 클릭 / ';
+          },
+
+          // 안쪽 영역 클릭
+          innerClick() {
+            this.log += '안쪽 클릭 / ';
+          },
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>
