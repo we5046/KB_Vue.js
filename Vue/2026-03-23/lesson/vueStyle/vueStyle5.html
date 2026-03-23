@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>computed 동적 스타일</title>
+
+    <style>
+      /* 메시지 공통 스타일 */
+      .message {
+        margin-top: 10px;
+        padding: 10px;
+        border-radius: 6px;
+      }
+
+      /* 안전 상태 */
+      .safe {
+        background-color: #d4edda;
+        color: #155724;
+      }
+
+      /* 위험 상태 */
+      .danger {
+        background-color: #f8d7da;
+        color: #721c24;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="app">
+      <!-- 비밀번호 입력 -->
+      <label>비밀번호 입력:</label>
+
+      <!-- v-model 바인딩 -->
+      <input type="password" v-model="password" />
+
+      <!-- 
+      클래스 바인딩 (computed 사용)
+      
+      passwordState 객체 반환
+      → 조건에 따라 safe / danger 자동 적용
+    -->
+      <div class="message" :class="passwordState">{{ passwordMessage }}</div>
+    </div>
+
+    <!-- Vue CDN -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+      Vue.createApp({
+        // 상태 데이터
+        data() {
+          return {
+            password: '', // 입력값
+          };
+        },
+
+        computed: {
+          // 비밀번호 상태 클래스
+          passwordState() {
+            return {
+              // 8자 이상이면 안전
+              safe: this.password.length >= 8,
+
+              // 1~7자이면 위험
+              danger: this.password.length > 0 && this.password.length < 8,
+            };
+          },
+
+          // 비밀번호 메시지
+          passwordMessage() {
+            if (this.password.length === 0) {
+              return '비밀번호를 입력해주세요.';
+            } else if (this.password.length < 8) {
+              return '비밀번호는 8자 이상이어야 합니다.';
+            } else {
+              return '사용 가능한 비밀번호 길이입니다.';
+            }
+          },
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>
