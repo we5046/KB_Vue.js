@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>기본 스타일 적용</title>
+
+    <style>
+      /* 카드 전체 영역 */
+      .card {
+        width: 300px; /* 카드 너비 */
+        padding: 20px; /* 내부 여백 */
+        border: 1px solid #333; /* 테두리 */
+        border-radius: 10px; /* 둥근 모서리 */
+        background-color: #f4f4f4; /* 배경색 */
+
+        /* 가운데 정렬 (좌우 auto) */
+        margin: 20px auto;
+      }
+
+      /* 제목 스타일 */
+      .title {
+        font-size: 24px; /* 글자 크기 */
+        font-weight: bold; /* 굵게 */
+        color: #222; /* 글자 색 */
+      }
+
+      /* 설명 텍스트 */
+      .desc {
+        color: #666; /* 연한 글자 색 */
+        margin-top: 10px; /* 위쪽 여백 */
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="app">
+      <!-- 카드 UI -->
+      <div class="card">
+        <!-- 제목 -->
+        <div class="title">상품 정보</div>
+
+        <!-- 설명 -->
+        <div class="desc">
+          이 영역은 일반 CSS 클래스로 스타일을 적용한 예제입니다.
+        </div>
+      </div>
+    </div>
+
+    <!-- Vue CDN -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+      // Vue 앱 생성 (현재는 데이터/로직 없음)
+      Vue.createApp({}).mount('#app');
+    </script>
+  </body>
+</html>
