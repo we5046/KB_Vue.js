@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <title>bootstrap 5</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+      /* 전체 페이지 기본 스타일 */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        padding: 30px;
+      }
+
+      /* 앱 전체 박스 */
+      .container {
+        width: 420px;
+        margin: 0 auto; /* 가운데 정렬 */
+        background-color: white;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      /* 제목 */
+      h2 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      /* 입력 영역 */
+      .input-box {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+
+      /* 입력창 */
+      .input-box input {
+        flex: 1; /* 남은 공간 다 차지 */
+        padding: 10px;
+        font-size: 16px;
+      }
+
+      /* 추가 버튼 */
+      .input-box button {
+        padding: 10px 14px;
+        border: none;
+        background-color: royalblue;
+        color: white;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+
+      /* 리스트 기본 스타일 제거 */
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      /* 할 일 한 줄 */
+      li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        background-color: #f0f4ff;
+      }
+
+      /* 클릭 가능한 텍스트 */
+      .todo-text {
+        cursor: pointer;
+      }
+
+      /* 완료 상태 */
+      .done {
+        text-decoration: line-through; /* 취소선 */
+        color: gray;
+      }
+
+      /* 삭제 버튼 */
+      .delete-btn {
+        border: none;
+        background-color: crimson;
+        color: white;
+        padding: 6px 10px;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+
+      /* 할 일 없을 때 메시지 */
+      .empty-msg {
+        text-align: center;
+        color: #888;
+        margin-top: 20px;
+      }
+
+      /* 상태 표시 박스 */
+      .status-box {
+        margin-top: 20px;
+        padding: 10px;
+        border-radius: 8px;
+        background-color: #eef2ff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Todo List</h2>
+      <div class="input-box">
+        <input type="text" placeholder="할 일을 입력하세요." />
+        <button @click="addTodo">추가</button>
+      </div>
+      <p v-if="todos.length === 0" class="empty-msg">
+        등록된 할 일이 없습니다.
+      </p>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      let app = Vue.createApp({
+        name: 'App',
+        data() {
+          return {
+            newTodo: '',
+            todos: [
+              { text: 'Vue 복습하기', done: false },
+              { text: '디렉티브 정리하기', done: true },
+            ],
+            doneCount: 1,
+          }; //return
+        }, //data
+        methods: {
+          addTodo() {},
+          toggleTodo() {},
+          removeTodo() {},
+          updateDoneCount() {},
+        },
+      });
+      app.mount('#sunghoon');
+    </script>
+  </body>
+</html>
