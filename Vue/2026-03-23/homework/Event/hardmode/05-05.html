@@ -18,13 +18,42 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   </head>
   <body>
-    <div id="sunghoon"></div>
+    <div id="sunghoon">
+      <div class="container mt-3">
+        <div class="card card-body shadow p-4" style="width: 500px">
+          <div
+            @contextmenu="ctxStop"
+            style="
+              position: absolute;
+              left: 5px;
+              top: 5px;
+              right: 5px;
+              bottom: 5px;
+            "
+          >
+            <a href="https://facebook.com" @click="confirmFB">페이스북</a>
+          </div>
+        </div>
+      </div>
+    </div>
     <script src="https://unpkg.com/vue"></script>
     <script>
       let app = Vue.createApp({
         name: 'App',
         data() {
-          return {};
+          return {
+            name: '',
+          };
+        },
+        methods: {
+          ctxStop() {
+            event.preventDefault();
+          },
+          confirmFB() {
+            if (!confirm('페이스북으로 이동할까요?')) {
+              e.preventDefault();
+            }
+          },
         },
       });
       app.mount('#sunghoon');
