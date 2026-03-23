@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <title>bootstrap 5</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+      /* 공통 박스 스타일 */
+      .menu-box {
+        padding: 16px;
+        width: 280px;
+        border-radius: 10px;
+        margin-top: 20px;
+      }
+
+      /* 음식 스타일 */
+      .food {
+        background-color: #fff3cd;
+        color: #856404;
+        border: 1px solid #ffeeba;
+      }
+
+      /* 음료 스타일 */
+      .drink {
+        background-color: #d1ecf1;
+        color: #0c5460;
+        border: 1px solid #bee5eb;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="sunghoon">
+      <button @click="this.type='food'">음식</button>
+      <button @click="this.type='drink'">음료</button>
+      <div class="menu-box" :class="type">현재 선택된 타입은 {{type}}</div>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      let app = Vue.createApp({
+        name: 'App',
+        data() {
+          return {
+            type: 'food',
+          };
+        },
+      });
+      app.mount('#sunghoon');
+    </script>
+  </body>
+</html>
