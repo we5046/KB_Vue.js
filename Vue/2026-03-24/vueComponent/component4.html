@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <user-component v-bind:user="userInfo"></user-component>>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      let vm = Vue.createApp({
+        name: 'App',
+        data() {
+          return {
+            userInfo: {
+              name: '홍길동',
+              age: 25,
+            },
+          };
+        },
+      });
+      vm.component('user-component', {
+        props: {
+          user: Object,
+        },
+        template: `
+            <div>
+                <p>이름: {{user.name}}</p>
+                <p>나이: {{user.age}}</p>
+            </div>
+        `,
+      });
+      vm.mount('#app');
+    </script>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <div>
+        <h1>여기는 Root의 H1 Element입니다!</h1>
+        <!-- 아래의 태그로 component를 사용할 수 있어요! -->
+        <my-global></my-global>
+        <my-local></my-local>
+      </div>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      let vm = Vue.createApp({
+        name: 'App',
+        data() {
+          return {
+            message: '소리없는 아우성!',
+          };
+        },
+        components: {
+          'my-local': {
+            name: 'my-local',
+            data() {
+              return {};
+            },
+            template: '<h2>지역 component입니다.</h2>',
+          },
+        },
+      });
+      vm.component('myGlobal', {
+        name: 'my-global',
+        data() {
+          return {
+            myData: '여기는 Global',
+          };
+        },
+        template: '<h1>여기는 myGlobal 영역 이에요!!</h1>',
+      });
+      vm.mount('#app');
+    </script>
+  </body>
+</html>

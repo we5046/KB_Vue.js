@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <child-component v-bind:props-data="message"></child-component>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      let vm = Vue.createApp({
+        name: 'App',
+        data() {
+          return { message: '소리없는 아우성!훈' };
+        },
+      });
+      //   첫번째 인자 - component, 두번째 인자 - 함수(행동)
+      vm.component('child-component', {
+        data() {
+          return {};
+        },
+        props: {
+          propsData: String,
+        },
+        template: `<h1>Root로부터 전달된 데이터는 {{propsData}} 입니다.</h1>
+        <ul>
+            <li>박</li>
+            <li>성훈</li>
+            </ul>`,
+      });
+      vm.mount('#app');
+    </script>
+  </body>
+</html>

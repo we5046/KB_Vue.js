@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <!-- 하위에서 상위 컴포넌트로 이벤트를 전달하기 -->
+  <body>
+    <div id="app">
+      <child-component></child-component>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      let vm = Vue.createApp({
+        name: 'App',
+        data() {
+          return {
+            message: 'hi',
+          };
+        },
+        methods: {
+          printText(...args) {
+            alert(args[0]);
+          },
+        },
+      });
+      vm.component('child-component', {
+        data() {
+          return {};
+        },
+        methods: {
+          showLog() {
+            console.log(this);
+          }, //showlog
+        }, //methods
+        template: '<button @click="showLog">Click!</button>',
+      });
+      vm.mount('#app');
+    </script>
+  </body>
+</html>
