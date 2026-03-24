@@ -8,7 +8,7 @@
   <!-- 하위에서 상위 컴포넌트로 이벤트를 전달하기 -->
   <body>
     <div id="app">
-      <child-component></child-component>
+      <child-component @show-log="printText"></child-component>
     </div>
     <script src="https://unpkg.com/vue"></script>
     <script>
@@ -30,11 +30,12 @@
           return {};
         },
         methods: {
-          showLog() {
+          cosmos() {
             console.log(this);
+            this.$emit('ShowLog', 100);
           }, //showlog
         }, //methods
-        template: '<button @click="showLog">Click!</button>',
+        template: '<button @click="cosmos">Click!</button>',
       });
       vm.mount('#app');
     </script>
