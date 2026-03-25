@@ -7,17 +7,19 @@
         모음
       </p>
       <ExTechCheckList v-if="selectedExample === 1" />
+      <ExStudentRegister />
     </header>
   </div>
 </template>
 
 <script>
 import ExTechCheckList from './components/Example1TechChecklist.vue';
-
+import ExStudentRegister from './components/Example2StudentRegister.vue';
 export default {
   name: 'app',
   components: {
     ExTechCheckList,
+    ExStudentRegister,
   },
   data() {
     return {
