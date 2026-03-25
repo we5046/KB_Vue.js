@@ -10,7 +10,6 @@
     >
       <template v-slot:icon>
         <i v-if="item.checked" class="far fa-grin-beam"></i>
-
         <i v-else class="far fa-frown"></i>
       </template>
       <template v-slot:label>
