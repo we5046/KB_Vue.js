@@ -8,6 +8,7 @@
       </p>
       <ExTechCheckList v-if="selectedExample === 1" />
       <ExStudentRegister />
+      <ExTodoToggle />
     </header>
   </div>
 </template>
@@ -15,11 +16,14 @@
 <script>
 import ExTechCheckList from './components/Example1TechChecklist.vue';
 import ExStudentRegister from './components/Example2StudentRegister.vue';
+import ExTodoToggle from './components/Example3TodoToggle.vue';
+
 export default {
   name: 'app',
   components: {
     ExTechCheckList,
     ExStudentRegister,
+    ExTodoToggle,
   },
   data() {
     return {
