@@ -1,25 +1,25 @@
 <template>
-  <div class="box">
-    <h3>Scoped CSS</h3>
-    <span class="badge">SCOPED</span>
+  <div :class="$style.box">
+    <h3>CSS Module</h3>
+    <span :class="$style.badge">MODULE</span>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'ScopedBadge',
+  name: 'ModuleBadge',
 };
 </script>
 
-<style scoped>
+<style module>
 .box {
-  border: 2px solid #4caf50;
+  border: 2px solid blue;
   padding: 20px;
   text-align: center;
 }
 
 .badge {
-  background: green;
+  background: blue;
   color: white;
   padding: 6px 12px;
   border-radius: 6px;
