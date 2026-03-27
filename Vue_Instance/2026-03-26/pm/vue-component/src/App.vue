@@ -18,5 +18,11 @@ export default {
 <style>
 .app-shell {
   padding: 30px;
+</template>
+
+<script></script>
+
+<style>
+.app-shell {
 }
 </style>
