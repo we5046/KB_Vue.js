@@ -1,11 +1,15 @@
-<script setup></script>
-
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+  <div>
+    <h1>Composition API 실습</h1>
+    <Step1Ref></Step1Ref>
+  </div>
 </template>
-
-<style scoped></style>
+<script>
+import Step1Ref from './components/Step1Ref.vue';
+export default {
+  name: 'App',
+  components: {
+    Step1Ref,
+  },
+};
+</script>
