@@ -44,8 +44,8 @@ export default {
         { id: 'QnaTab', label: 'Q&A' },
         { id: 'ProfileTab', label: '프로필' },
       ],
-    };
-  },
+    }; //return
+  }, // data
   methods: {
     changeTab(tab) {
       this.currentTab = tab;
