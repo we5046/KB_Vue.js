@@ -31,7 +31,11 @@ import ProfileTab from '../components/dynamic/ProfileTab.vue';
 
 export default {
   name: 'DynamicExample',
-  components: { NoticeTab, QnaTab, ProfileTab },
+  components: {
+    NoticeTab,
+    QnaTab,
+    ProfileTab,
+  },
   data() {
     return {
       currentTab: 'NoticeTab',
@@ -40,8 +44,8 @@ export default {
         { id: 'QnaTab', label: 'Q&A' },
         { id: 'ProfileTab', label: '프로필' },
       ],
-    }; //return
-  }, // data
+    };
+  },
   methods: {
     changeTab(tab) {
       this.currentTab = tab;
@@ -49,4 +53,40 @@ export default {
   },
 };
 </script>
-<style></style>
+
+<style scoped>
+.page {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.guide {
+  color: #555;
+  margin-bottom: 18px;
+  line-height: 1.7;
+}
+
+.tab-bar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tab-btn {
+  border: none;
+  background: #e9eef8;
+  color: #2d4a7f;
+  padding: 12px 18px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.tab-btn.active {
+  background: #2f80ed;
+  color: white;
+}
+
+.content {
+  margin-top: 10px;
+}
+</style>
