@@ -13,7 +13,10 @@ export default {
   setup() {
     const x = ref(10);
     const y = ref(20);
+    let o = ref({ name, age });
 
+    console.log(o.value.name);
+    console.log(o.value.age);
     x.value = 20;
 
     console.log(x);

@@ -14,9 +14,7 @@ export default {
   name: 'Calc4',
   setup() {
     const state = reactive({ x: 10, y: 20 });
-    const result = computed(() => {
-      return state.x + state.y;
-    });
+    const result = computed(() => state.x + state.y);
     return { state, result };
   },
 };

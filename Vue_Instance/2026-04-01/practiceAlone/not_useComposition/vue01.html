@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      쉽게 출력하려면 : {{message}}
+      <br /><br />
+      <h2 v-text="message"></h2>
+      <h2 v-html="message"></h2>
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      let vm = Vue.createApp({
+        name: 'App',
+        data() {
+          return {
+            message: '<i>소리 없는 아우성<i>',
+          };
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>

@@ -59,5 +59,4 @@ const toggleCompleted = (id) => {
   let index = state.todoList.findIndex((item) => id === item.id);
   state.todoList[index].completed = !state.todoList[index].completed;
 };
-return { state, addTodo, deleteTodo, toggleCompleted };
 </script>
