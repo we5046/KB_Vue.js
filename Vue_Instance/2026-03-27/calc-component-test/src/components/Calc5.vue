@@ -21,6 +21,3 @@ export default {
   },
 };
 </script>
-
-watch( () => state.x, (current, old) => { console.log(`${old} -> ${current}`);
-state.result = current * 2; } );

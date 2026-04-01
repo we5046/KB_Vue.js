@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <div>
+        <global-component-a v-bind:my-string="message"></global-component-a>
+        <global-component-b v-on:event-b="rootMyFunc"></global-component-b>
+      </div>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            message: '',
+          };
+        },
+        methods: {
+          rootMyFunc: function (data) {
+            console.log('root로 전달된 데이터', data);
+            this.message = data;
+          },
+        },
+      });
+
+      app.component('global-component-a', {
+        template: `
+                <div>
+                    <local-component-c></local-component-c>
+                    <local-component-d v-bind:my-data="myString"></local-component-d>
+                </div>
+            `,
+        props: {
+          myString: String,
+        },
+        components: {
+          'local-component-c': {
+            template: '<div>Local Component C</div>',
+          },
+          'local-component-d': {
+            template: `
+                    <div>
+                        <div>Local Component D</div>
+                        <div>전달된 데이터 : {{ myData }}</div>
+                    </div>
+                    `,
+            props: {
+              myData: String,
+            },
+          },
+        },
+      });
+
+      app.component('global-component-b', {
+        template: `
+                <local-component-f v-on:event-f="myFunc"></local-component-f>
+            `,
+        methods: {
+          myFunc: function (data) {
+            console.log('입력된 값', data);
+            this.$emit('event-b', data);
+          },
+        },
+        components: {
+          'local-component-f': {
+            template: `
+                    <div>
+                        <input type="text" id="inputText">
+                        <button v-on:click="btnClick">클릭클릭</button>
+                    <div>
+                    `,
+            methods: {
+              btnClick: function () {
+                this.$emit(
+                  'event-f',
+                  document.getElementById('inputText').value,
+                );
+              },
+            },
+          },
+        },
+      });
+
+      app.mount('#app');
+    </script>
+  </body>
+</html>
