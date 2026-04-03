@@ -1,13 +1,13 @@
 <template>
   <div class="row">
     <div class="col p-3">
-      <h2>할일 수정</h2>
+      <h2>할일 추가</h2>
     </div>
   </div>
   <div class="row">
     <div class="col">
       <div class="form-group">
-        <label htmlFor="todo">할일:</label>
+        <label htmlFor="todo">할일 :</label>
         <input
           type="text"
           class="form-control"
@@ -16,7 +16,7 @@
         />
       </div>
       <div class="form-group">
-        <label htmlFor="desc">설명:</label>
+        <label htmlFor="desc">설명 :</label>
         <textarea
           class="form-control"
           rows="3"
@@ -25,16 +25,12 @@
         ></textarea>
       </div>
       <div class="form-group">
-        <label htmlFor="done">완료여부 : </label>&nbsp;
-        <input type="checkbox" v-model="todoItem.done" />
-      </div>
-      <div class="form-group">
         <button
           type="button"
           class="btn btn-primary m-1"
-          @click="updateTodoHandler"
+          @click="addTodoHandler"
         >
-          수 정
+          추 가
         </button>
         <button
           type="button"
@@ -50,27 +46,21 @@
 
 <script setup>
 import { inject, reactive } from 'vue';
-import { useRouter, useRoute } from 'vue-router';
+import { useRouter } from 'vue-router';
 
-const todoList = inject('todoList');
-const { updateTodo } = inject('actions');
 const router = useRouter();
-const currentRoute = useRoute();
+const { addTodo } = inject('actions');
+const todoItem = reactive({ todo: '', desc: '' });
 
-const matchedTodoItem = todoList.value.find(
-  (item) => item.id === currentRoute.params.id,
-);
-if (!matchedTodoItem) {
-  router.push('/todos');
-}
-const todoItem = reactive({ ...matchedTodoItem });
-const updateTodoHandler = () => {
+const addTodoHandler = () => {
   let { todo } = todoItem;
   if (!todo || todo.trim() === '') {
-    alert('할일은 반드시 입력해야 합니다');
+    alert('반드시 할일을 입력해야합니다.');
     return;
   }
-  updateTodo({ ...todoItem });
-  router.push('/todos');
+  //todoItem은 reactive 객체인데, 그냥 넘겨서 add하게 되면 안됨 (순수 객체를 넘기기위해)
+  addTodo({ ...todoItem }, () => {
+    router.push('/todos');
+  });
 };
 </script>
