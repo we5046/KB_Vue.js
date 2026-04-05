@@ -1,0 +1,49 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "최고의 마라탕 맛집 발견!",
+      "content": "국물이 진짜 진하고 맛있습니다. 고기 추가는 필수입니다. 다음 주에 또 갈 예정이에요.",
+      "author": "마라탕귀신",
+      "rating": 5,
+      "isRecommended": true,
+      "createdAt": "2023-10-25"
+    },
+    {
+      "id": "2",
+      "title": "뷰는 좋은데 맛은 평범해요",
+      "content": "창가 자리 뷰는 정말 멋진데, 파스타 맛은 그냥 그렇습니다. 가격대비 좀 아쉽네요.",
+      "author": "프로리뷰어",
+      "rating": 3,
+      "isRecommended": false,
+      "createdAt": "2023-10-26"
+    },
+    {
+      "title": "ㄷㄷ",
+      "author": "ㄷㄷㄷ",
+      "rating": 5,
+      "isRecommended": true,
+      "content": "ㄷㄷㄷ",
+      "createdAt": "2026-04-05",
+      "id": "swMkbwn"
+    },
+    {
+      "title": "ㄹㄷㄹㄷ",
+      "author": "ㄹㄷㄹㄷ",
+      "rating": 5,
+      "isRecommended": true,
+      "content": "ㄹㄷㄷ",
+      "createdAt": "2026-04-05",
+      "id": "xRctYp_"
+    },
+    {
+      "title": "ㄹㄷㄹ",
+      "author": "ㄹㄷㄹㄷ",
+      "rating": "3",
+      "isRecommended": false,
+      "content": "ㄹㄷㄹㄷ",
+      "createdAt": "2026-04-05",
+      "id": "HLCpKJ1"
+    }
+  ]
+}
