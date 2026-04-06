@@ -49,26 +49,23 @@
 </template>
 
 <script setup>
-import { inject, reactive } from 'vue';
+import { reactive } from 'vue';
+import { useTodoListStore } from '@/stores/todoList.js';
+// import { inject, reactive } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
 
-const todoList = inject('todoList');
-const { updateTodo } = inject('actions');
+const { todoList, updateTodo } = useTodoListStore();
+// const todoList = inject('todoList');
+// const { updateTodo } = inject('actions');
 const router = useRouter();
 const currentRoute = useRoute();
 
-// 실제로 정말 있는지 만약 undefined면 없다 -> 목록으로 이동
-const matchedTodoItem = todoList.value.find(
+const matchedTodoItem = todoList.find(
   (item) => item.id === currentRoute.params.id,
 );
 if (!matchedTodoItem) {
-  // 이때 사용자에게 안내하거나, 404Not-Found로 옮기거나 한다.
   router.push('/todos');
 }
-
-// 만약에, 내가 수정하다가 취소하면, 원본 참조를 통해 작업을 했더라면, 
-// 원본에서 일어나는 수정이 될 수 있다? -> 취소할때 그냥 버림 작업을 원한다.
-// 이경우 원본은 문제가 없다?
 const todoItem = reactive({ ...matchedTodoItem });
 const updateTodoHandler = () => {
   let { todo } = todoItem;
@@ -76,7 +73,8 @@ const updateTodoHandler = () => {
     alert('할일은 반드시 입력해야 합니다');
     return;
   }
-  updateTodo({ ...todoItem });
-  router.push('/todos');
+  updateTodo({ ...todoItem }, () => {
+    router.push('/todos');
+  });
 };
 </script>

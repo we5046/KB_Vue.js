@@ -31,6 +31,7 @@ const requestAPI2 = () => {
     .then((response) => {
       todoList = response.data;
       console.log('#모든 TodoList 항목: ', todoList);
+      return todoList.find((t => t.id === '1'))?.id;
       for (let i = 0; i < todoList.length; i++) {
         if (todoList[i].id === '100') {
           return todoList[i].id;
